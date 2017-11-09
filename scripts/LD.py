@@ -31,8 +31,6 @@ for pair in list_pairs:
     r2 = ld ** 2 / (p_a * (1 - p_a) * p_b * (1 - p_b))
     list_ld.append([pair[0], pair[1], ld, r2])
 
-# print(list_ld)
-
 file_ld = open(out_file, "w")
 file_ld.write('gene_first' + "\t" + 'gene_second' + "\t" + 'ld' + "\t" + "r2" + '\n')
 for pair in list_ld:
@@ -45,3 +43,5 @@ for pair in list_ld:
     file_ld.write(str(pair[3]))
     file_ld.write("\n")
 file_ld.close()
+
+#hello world
