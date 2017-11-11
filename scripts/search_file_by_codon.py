@@ -4,7 +4,7 @@ import os, math
 # out_file = "/Users/anastasia/PycharmProjects/course_work/output/files_with_stop_codon.txt"
 
 direct = "/mnt/lustre/potapova/200_flies/all_genes/"
-out_file = "/mnt/lustre/nknyazeva/courseWork4/repository/output/files_with_stop_codonscd .txt"
+out_file = "/mnt/lustre/nknyazeva/courseWork4/repository/output/files_with_stop_codon.txt"
 
 border_amount = 0.05
 
