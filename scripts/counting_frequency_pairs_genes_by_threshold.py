@@ -15,8 +15,8 @@ threshold = str(a[0])
 in_file = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/threshold_genes_with_stop", str(threshold)])
 in_file_wo_stop = "/mnt/lustre/nknyazeva/courseWork4/repository/output/files_wo_stop_codons.txt"
 in_file_no_threshold = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/no_threshold_genes_with_stop", str(threshold)])
-out_file_frequency_codon = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/frequencyCodon_gene", str(threshold)])
-out_file_frequency_codon_counting = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/frequencyCodon_gene_counting", str(threshold)])
+out_file_frequency_codon = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/description_pairs_genes", str(threshold)])
+out_file_frequency_codon_counting = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/frequency_pairs_genes", str(threshold)])
 
 # in_file = "/mnt/lustre/nknyazeva/courseWork4/scripts/output/threshold_genes_with_stop.txt"
 # in_file_wo_stop = "/mnt/lustre/nknyazeva/courseWork4/scripts/output/files_wo_stop_codons.txt"
