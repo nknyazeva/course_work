@@ -43,6 +43,3 @@ for pair in list_ld:
     file_ld.write(str(pair[3]))
     file_ld.write("\n")
 file_ld.close()
-
-#hello world
-#hello world1

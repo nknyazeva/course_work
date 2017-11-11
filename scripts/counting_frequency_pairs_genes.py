@@ -162,7 +162,7 @@ dict_combinations_neighbor_genes = {}
 for key in dict_chr_file.keys():
     list_one_chr_files = dict_chr_file[key]
     combinations_neighbor_genes = creation_pairs_files(list_one_chr_files)
-    print(combinations_neighbor_genes)
+    # print(combinations_neighbor_genes)
     dict_combinations_neighbor_genes[key] = combinations_neighbor_genes
 
 for c in dict_combinations_neighbor_genes:

@@ -4,7 +4,7 @@ direct = "/mnt/lustre/potapova/200_flies/all_genes/"
 in_file = "/mnt/lustre/nknyazeva/courseWork4/repository/output/files_with_stop_codon.txt"
 out_file_gene = "/mnt/lustre/nknyazeva/courseWork4/repository/output/all_genes_with_stop.txt"
 out_file_gene_threshold = "/mnt/lustre/nknyazeva/courseWork4/repository/output/threshold_genes_with_stop"
-out_file_gene_threshold_no = "/mnt/lustre/nknyazeva/courseWork4/repository/output/threshold_genes_with_stop"
+out_file_gene_threshold_no = "/mnt/lustre/nknyazeva/courseWork4/repository/output/no_threshold_genes_with_stop"
 
 
 # direct = "/Users/anastasia/PycharmProjects/course_work/testData/"
