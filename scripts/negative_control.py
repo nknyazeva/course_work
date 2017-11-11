@@ -5,18 +5,19 @@ a = sys.argv
 a = a[1:]
 threshold = str(a[0])
 
-# in_file = '_'.join(["/Users/anastasia/PycharmProjects/course_work/output/threshold_genes_with_stop", str(threshold)])
-# in_file_wo_stop = "/Users/anastasia/PycharmProjects/course_work/output/files_wo_stop_codons.txt"
-# in_file_no_threshold = '_'.join(["/Users/anastasia/PycharmProjects/course_work/output/no_threshold_genes_with_stop", str(threshold)])
-# out_file_frequency_codon = '_'.join(["/Users/anastasia/PycharmProjects/course_work/output/description_pairs_genes", str(threshold)])
-# out_file_frequency_codon_counting = '_'.join(["/Users/anastasia/PycharmProjects/course_work/output/frequency_pairs_genes", str(threshold)])
+in_file = '_'.join(["/Users/anastasia/PycharmProjects/course_work/output/threshold_genes_with_stop", str(threshold)])
+in_file_wo_stop = "/Users/anastasia/PycharmProjects/course_work/output/files_wo_stop_codons.txt"
+in_file_no_threshold = '_'.join(["/Users/anastasia/PycharmProjects/course_work/output/no_threshold_genes_with_stop", str(threshold)])
+out_file_frequency_codon = '_'.join(["/Users/anastasia/PycharmProjects/course_work/output/ng_description_pairs_genes", str(threshold)])
+out_file_frequency_codon_counting = '_'.join(["/Users/anastasia/PycharmProjects/course_work/output/ng_frequency_pairs_genes", str(threshold)])
 
 
-in_file = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/threshold_genes_with_stop", str(threshold)])
-in_file_wo_stop = "/mnt/lustre/nknyazeva/courseWork4/repository/output/files_wo_stop_codons.txt"
-in_file_no_threshold = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/no_threshold_genes_with_stop", str(threshold)])
-out_file_frequency_codon = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/description_pairs_genes", str(threshold)])
-out_file_frequency_codon_counting = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/frequency_pairs_genes", str(threshold)])
+# in_file = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/threshold_genes_with_stop", str(threshold)])
+# in_file_wo_stop = "/mnt/lustre/nknyazeva/courseWork4/repository/output/files_wo_stop_codons.txt"
+# in_file_no_threshold = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/no_threshold_genes_with_stop", str(threshold)])
+# out_file_frequency_codon = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/description_pairs_genes", str(threshold)])
+# out_file_frequency_codon_counting = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/frequency_pairs_genes", str(threshold)])
+
 
 number_individual = float(197)
 
@@ -83,24 +84,6 @@ def sort_name_file(list_files):
 
     list_name_file.sort(key=lambda x: [x.chr, x.number])
     return list_name_file
-
-
-def creation_pairs_files(list_genes):
-    list_neighbors = list_genes[:number_neighbors]
-    combinations_neighbors = []
-    tmp = list(combinations(list_neighbors, 2))
-    for t in tmp:
-        if t[0].name_file in list_files_with_stop:
-            if t[1].name_file in list_files_with_stop:
-                combinations_neighbors.append(t)
-    for i in range(number_neighbors, len(list_genes)):
-        list_neighbors = list_genes[i - number_neighbors + 1:i]
-        new_neighbors = list_genes[i]
-        if new_neighbors.name_file in list_files_with_stop:
-            for gene in list_neighbors:
-                if gene.name_file in list_files_with_stop:
-                    combinations_neighbors.append((gene, new_neighbors))
-    return combinations_neighbors
 
 
 def creation_pairs_gene(file_pairs):
@@ -179,10 +162,16 @@ for file in list_name_file_sorted:
 
 
 dict_combinations_neighbor_genes = {}
-for key in dict_chr_file.keys():
-    list_one_chr_files = dict_chr_file[key]
-    combinations_neighbor_genes = creation_pairs_files(list_one_chr_files)
-    dict_combinations_neighbor_genes[key] = combinations_neighbor_genes
+for key_first in dict_chr_file.keys():
+    for key_second in dict_chr_file.keys():
+        if key_first != key_second:
+            k = str(key_second)+ '|' + str(key_first)
+            if k not in dict_combinations_neighbor_genes.keys():
+                combinations_neighbor_genes = []
+                for gene in range(min(len(dict_chr_file[key_first]), len(dict_chr_file[key_second]))):
+                    combinations_neighbor_genes.append((dict_chr_file[key_first][gene], dict_chr_file[key_second][gene]))
+                dict_combinations_neighbor_genes[str(key_first)+ '|' + str(key_second)] = combinations_neighbor_genes
+
 
 for c in dict_combinations_neighbor_genes:
     for file_pairs in dict_combinations_neighbor_genes[c]:

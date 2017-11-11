@@ -7,11 +7,11 @@ out_file_gene_threshold = "/mnt/lustre/nknyazeva/courseWork4/repository/output/t
 out_file_gene_threshold_no = "/mnt/lustre/nknyazeva/courseWork4/repository/output/no_threshold_genes_with_stop"
 
 
-# direct = "/Users/anastasia/PycharmProjects/course_work/testData/"
-# in_file = "/Users/anastasia/PycharmProjects/course_work/files_with_stop_codon.txt"
-# out_file_gene = "/Users/anastasia/PycharmProjects/course_work/all_genes_with_stop.txt"
-# out_file_gene_threshold = "/Users/anastasia/PycharmProjects/course_work/threshold_genes_with_stop"
-# out_file_gene_threshold_no = "/Users/anastasia/PycharmProjects/course_work/no_threshold_genes_with_stop"
+# direct = "/Users/anastasia/PycharmProjects/course_work/data/testData/"
+# in_file = "/Users/anastasia/PycharmProjects/course_work/output/files_with_stop_codon_wo_remove.txt"
+# out_file_gene = "/Users/anastasia/PycharmProjects/course_work/output/all_genes_with_stop.txt"
+# out_file_gene_threshold = "/Users/anastasia/PycharmProjects/course_work/output/threshold_genes_with_stop"
+# out_file_gene_threshold_no = "/Users/anastasia/PycharmProjects/course_work/output/no_threshold_genes_with_stop"
 
 
 global gene_catalog

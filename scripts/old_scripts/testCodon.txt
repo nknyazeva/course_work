@@ -1,4 +1,0 @@
-chr2L_307.fasta	2592344	1
-chr2L_307.fasta	2588886	1
-chr2L_716.fasta	6045511	2
-chr2L_1656.fasta	13484596	52

@@ -1,6 +1,6 @@
 import os, math
 
-# direct = "/Users/anastasia/PycharmProjects/course_work/data/fileTest/test"
+# direct = "/Users/anastasia/PycharmProjects/course_work/data/testData/"
 # out_file = "/Users/anastasia/PycharmProjects/course_work/output/files_with_stop_codon.txt"
 
 direct = "/mnt/lustre/potapova/200_flies/all_genes/"

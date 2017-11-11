@@ -1,7 +1,17 @@
-import re
-in_file_pairs = "/Users/anastasia/PycharmProjects/course_work/real_data/frequency_pairs_genes.txt"
-in_file_genes = "/Users/anastasia/PycharmProjects/course_work/real_data/threshold_genes_with_stop.txt"
-out_file = "/Users/anastasia/PycharmProjects/course_work/LD.txt"
+import re, sys
+a = sys.argv
+a = a[1:]
+threshold = str(a[0])
+
+in_file_pairs = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/frequency_pairs_genes", str(threshold)])
+in_file_genes = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/threshold_genes_with_stop", str(threshold)])
+out_file = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/LD", str(threshold)])
+
+
+# in_file_pairs = '_'.join(["/Users/anastasia/PycharmProjects/course_work/output/frequency_pairs_genes", str(threshold)])
+# in_file_genes = '_'.join(["/Users/anastasia/PycharmProjects/course_work/output/threshold_genes_with_stop", str(threshold)])
+# out_file = '_'.join(["/Users/anastasia/PycharmProjects/course_work/output/LD", str(threshold)])
+
 
 file_pairs = open(in_file_pairs, "r")
 list_pairs = []

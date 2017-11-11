@@ -1,14 +1,12 @@
 import os
 
-# direct = "/Users/anastasia/PycharmProjects/course_work/testData/"
-# in_file = "/Users/anastasia/PycharmProjects/course_work/files_with_stop_codon.txt"
-# out_file = "/Users/anastasia/PycharmProjects/course_work/files_wo_stop_codons.txt"
+# direct = "/Users/anastasia/PycharmProjects/course_work/data/testData/"
+# in_file = "/Users/anastasia/PycharmProjects/course_work/output/files_with_stop_codon_wo_remove.txt"
+# out_file = "/Users/anastasia/PycharmProjects/course_work/output/files_wo_stop_codons.txt"
 
 direct = "/mnt/lustre/potapova/200_flies/all_genes/"
 in_file = "/mnt/lustre/nknyazeva/courseWork4/repository/output/files_with_stop_codon.txt"
 out_file = "/mnt/lustre/nknyazeva/courseWork4/repository/output/files_wo_stop_codons.txt"
-
-
 
 file_stop = open(in_file, "r")
 list_file_stop = []

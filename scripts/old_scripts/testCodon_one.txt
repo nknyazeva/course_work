@@ -1,2 +1,0 @@
-chr3L_747_one.fasta	6362164	2
-chr3L_747_one.fasta	6362308	1
