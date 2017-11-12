@@ -169,7 +169,9 @@ for key_first in dict_chr_file.keys():
             if k not in dict_combinations_neighbor_genes.keys():
                 combinations_neighbor_genes = []
                 for gene in range(min(len(dict_chr_file[key_first]), len(dict_chr_file[key_second]))):
-                    combinations_neighbor_genes.append((dict_chr_file[key_first][gene], dict_chr_file[key_second][gene]))
+                    if dict_chr_file[key_first][gene].name_file in list_files_with_stop:
+                        if dict_chr_file[key_second][gene].name_file in list_files_with_stop:
+                            combinations_neighbor_genes.append((dict_chr_file[key_first][gene], dict_chr_file[key_second][gene]))
                 dict_combinations_neighbor_genes[str(key_first)+ '|' + str(key_second)] = combinations_neighbor_genes
 
 
