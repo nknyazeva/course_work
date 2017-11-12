@@ -3,9 +3,9 @@ a = sys.argv
 a = a[1:]
 threshold = str(a[0])
 
-in_file_pairs = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/frequency_pairs_genes", str(threshold)])
+in_file_pairs = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/ng_frequency_pairs_genes", str(threshold)])
 in_file_genes = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/threshold_genes_with_stop", str(threshold)])
-out_file = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/LD", str(threshold)])
+out_file = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/ng_LD", str(threshold)])
 
 
 # in_file_pairs = '_'.join(["/Users/anastasia/PycharmProjects/course_work/output/frequency_pairs_genes", str(threshold)])
