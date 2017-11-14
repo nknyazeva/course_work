@@ -162,18 +162,19 @@ for file in list_name_file_sorted:
 
 
 dict_combinations_neighbor_genes = {}
-for key_first in dict_chr_file.keys():
-    for key_second in dict_chr_file.keys():
-        if key_first != key_second:
-            k = str(key_second)+ '|' + str(key_first)
-            if k not in dict_combinations_neighbor_genes.keys():
+for chr_first in dict_chr_file.keys():
+    for chr_second in dict_chr_file.keys():
+        if chr_first != chr_second:
+            tmp = str(chr_second) + '|' + str(chr_first)
+            if tmp not in dict_combinations_neighbor_genes.keys():
                 combinations_neighbor_genes = []
-                for num_gene_first in range(len(dict_chr_file[key_first])):
-                    for num_gene_second in range(len(dict_chr_file[key_second])):
-                        if dict_chr_file[key_first][num_gene_first].name_file in list_files_with_stop:
-                            if dict_chr_file[key_second][num_gene_second].name_file in list_files_with_stop:
-                                combinations_neighbor_genes.append((dict_chr_file[key_first][num_gene_first], dict_chr_file[key_second][num_gene_second]))
-                dict_combinations_neighbor_genes[str(key_first)+ '|' + str(key_second)] = combinations_neighbor_genes
+                for num_gene_first in range(len(dict_chr_file[chr_first])):
+                    for num_gene_second in range(len(dict_chr_file[chr_second]) - number_neighbors):
+                        for num in range(number_neighbors):
+                            if dict_chr_file[chr_first][num_gene_first].name_file in list_files_with_stop:
+                                if dict_chr_file[chr_second][num_gene_second + num].name_file in list_files_with_stop:
+                                    combinations_neighbor_genes.append((dict_chr_file[chr_first][num_gene_first], dict_chr_file[chr_second][num_gene_second + num]))
+                dict_combinations_neighbor_genes[str(chr_first) + '|' + str(chr_second)] = combinations_neighbor_genes
 
 
 for c in dict_combinations_neighbor_genes:
