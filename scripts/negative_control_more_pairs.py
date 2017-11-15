@@ -168,7 +168,7 @@ for chr_first in dict_chr_file.keys():
             tmp = str(chr_second) + '|' + str(chr_first)
             if tmp not in dict_combinations_neighbor_genes.keys():
                 combinations_neighbor_genes = []
-                for num_gene in range(min(len(dict_chr_file[chr_first]), len(dict_chr_file[chr_second]))):
+                for num_gene in range(min(len(dict_chr_file[chr_first]), len(dict_chr_file[chr_second])) - number_neighbors):
                     for num in range(number_neighbors):
                         if dict_chr_file[chr_first][num_gene].name_file in list_files_with_stop:
                             if dict_chr_file[chr_second][num_gene + num].name_file in list_files_with_stop:
