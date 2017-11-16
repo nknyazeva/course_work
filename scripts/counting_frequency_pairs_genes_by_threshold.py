@@ -5,6 +5,9 @@ a = sys.argv
 a = a[1:]
 threshold = str(a[0])
 
+global number_neighbors
+number_neighbors = str(a[1])
+
 # in_file = '_'.join(["/Users/anastasia/PycharmProjects/course_work/output/threshold_genes_with_stop", str(threshold)])
 # in_file_wo_stop = "/Users/anastasia/PycharmProjects/course_work/output/files_wo_stop_codons.txt"
 # in_file_no_threshold = '_'.join(["/Users/anastasia/PycharmProjects/course_work/output/no_threshold_genes_with_stop", str(threshold)])
@@ -15,16 +18,13 @@ threshold = str(a[0])
 in_file = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/threshold_genes_with_stop", str(threshold)])
 in_file_wo_stop = "/mnt/lustre/nknyazeva/courseWork4/repository/output/files_wo_stop_codons.txt"
 in_file_no_threshold = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/no_threshold_genes_with_stop", str(threshold)])
-out_file_frequency_codon = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/description_pairs_genes", str(threshold)])
-out_file_frequency_codon_counting = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/frequency_pairs_genes", str(threshold)])
+out_file_frequency_codon = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/description_pairs_genes", str(threshold), str(number_neighbors)])
+out_file_frequency_codon_counting = '_'.join(["/mnt/lustre/nknyazeva/courseWork4/repository/output/frequency_pairs_genes", str(threshold), str(number_neighbors)])
 
 number_individual = float(197)
 
 global gene_catalog
 gene_catalog = []
-
-global number_neighbors
-number_neighbors = 10
 
 global catalog_pairs_gene
 catalog_pairs_gene = []
