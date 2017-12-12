@@ -1,12 +1,10 @@
-import os
+import os, re
 import json
 
 # direct = "/Users/anastasia/PycharmProjects/course_work/data/testData/"
 # out_file = "/Users/anastasia/PycharmProjects/course_work/output/stop_codon_relative_coordinate.txt"
 # out_file_before = "/Users/anastasia/PycharmProjects/course_work/output/list_stop_codon_before.txt"
 # out_file_after = "/Users/anastasia/PycharmProjects/course_work/output/list_stop_codon_after.txt"
-
-
 
 direct = "/mnt/lustre/potapova/200_flies/all_genes/"
 out_file = "/mnt/lustre/nknyazeva/courseWork4/repository/output/stop_codon_relative_coordinate.txt"
@@ -22,9 +20,11 @@ f2 = open(out_file, "w")
 result = []
 
 for file in file_list:
-    tmp = True
+    # tmp = True
     f1 = open(os.path.join(direct, file), "r")
     for line in f1:
+        if line[0] == ">":
+            id =  re.search(r'>\w+', line).group(0)
         if line[0] != ">":
             string = line[:-4]
             index = 0
@@ -33,15 +33,16 @@ for file in file_list:
                 index = index + 3
                 if current_codon == 'TAA' or current_codon == 'TAG' or current_codon == 'TGA':
                     data = {}
+                    data["id"] = id
                     data["file_name"] = file
                     data["current_codon"] = current_codon
                     data["coord"] = index - 3
                     data["number_n"] = 0
                     result.append(data)
-                    tmp = False
-                    break
-        if tmp == False:
-            break
+                    # tmp = False
+                    # break
+        # if tmp == False:
+        #     break
     f1.close()
 
 for data in result:
