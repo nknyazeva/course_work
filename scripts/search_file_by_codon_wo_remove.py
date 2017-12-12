@@ -4,7 +4,7 @@ import os
 # out_file = "/Users/anastasia/PycharmProjects/course_work/output/files_with_stop_codon_wo_remove.txt"
 
 direct = "/mnt/lustre/potapova/200_flies/all_genes/"
-out_file = "/mnt/lustre/nknyazeva/courseWork4/scripts/output/files_with_stop_codon.txt"
+out_file = "/mnt/lustre/nknyazeva/courseWork4/scripts/output/files_with_stop_codon_wo_remove.txt"
 
 for folders, subfolders, files in os.walk(direct):
     file_list = files

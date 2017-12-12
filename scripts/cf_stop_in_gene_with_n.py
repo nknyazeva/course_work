@@ -1,17 +1,20 @@
 import os, re
+import json
 
-direct = "/mnt/lustre/potapova/200_flies/all_genes/"
-in_file = "/mnt/lustre/nknyazeva/courseWork4/repository/output/files_with_stop_codon.txt"
-out_file_gene = "/mnt/lustre/nknyazeva/courseWork4/repository/output/all_genes_with_stop.txt"
-out_file_gene_threshold = "/mnt/lustre/nknyazeva/courseWork4/repository/output/threshold_genes_with_stop"
-out_file_gene_threshold_no = "/mnt/lustre/nknyazeva/courseWork4/repository/output/no_threshold_genes_with_stop"
+# direct = "/mnt/lustre/potapova/200_flies/all_genes/"
+# in_file = "/mnt/lustre/nknyazeva/courseWork4/repository/output/files_with_stop_codon.txt"
+# in_file_rel_coord = "/mnt/lustre/nknyazeva/courseWork4/repository/output/stop_codon_relative_coordinate.txt"
+# out_file_gene = "/mnt/lustre/nknyazeva/courseWork4/repository/output/all_genes_with_stop.txt"
+# out_file_gene_threshold = "/mnt/lustre/nknyazeva/courseWork4/repository/output/threshold_genes_with_stop"
+# out_file_gene_threshold_no = "/mnt/lustre/nknyazeva/courseWork4/repository/output/no_threshold_genes_with_stop"
 
 
-# direct = "/Users/anastasia/PycharmProjects/course_work/data/testData/"
-# in_file = "/Users/anastasia/PycharmProjects/course_work/output/files_with_stop_codon_wo_remove.txt"
-# out_file_gene = "/Users/anastasia/PycharmProjects/course_work/output/all_genes_with_stop.txt"
-# out_file_gene_threshold = "/Users/anastasia/PycharmProjects/course_work/output/threshold_genes_with_stop"
-# out_file_gene_threshold_no = "/Users/anastasia/PycharmProjects/course_work/output/no_threshold_genes_with_stop"
+direct = "/Users/anastasia/PycharmProjects/course_work/data/testData/"
+in_file = "/Users/anastasia/PycharmProjects/course_work/output/files_with_stop_codon_wo_remove.txt"
+in_file_rel_coord = "/Users/anastasia/PycharmProjects/course_work/output/stop_codon_relative_coordinate.txt"
+out_file_gene = "/Users/anastasia/PycharmProjects/course_work/output/all_genes_with_stop.txt"
+out_file_gene_threshold = "/Users/anastasia/PycharmProjects/course_work/output/threshold_genes_with_stop"
+out_file_gene_threshold_no = "/Users/anastasia/PycharmProjects/course_work/output/no_threshold_genes_with_stop"
 
 
 global gene_catalog
@@ -89,6 +92,10 @@ def search_codon (seq, gene, dict_coordinates):
     gene.stop_codon = dict_stopCodon
     gene_catalog.append(gene)
 
+def frequency_n (file):
+    
+
+
 
 def frequency_stop_codon (gene_catalog):
     dict_file_gene = {}
@@ -100,6 +107,7 @@ def frequency_stop_codon (gene_catalog):
             dict_file_gene[gene.name_file].append(gene)
     for file in dict_file_gene.keys():
         index = 0
+        frequency_n(dict_file_gene[file])
         for gene in dict_file_gene[file]:
             if gene.stop_codon != {}:
                 index = index + 1
@@ -110,12 +118,27 @@ def frequency_stop_codon (gene_catalog):
 def write_gene(gene_catalog, out_fileGene):
     file_gene = open(out_fileGene, "w")
     for gene in gene_catalog:
-        file_gene.write(str(gene.name_file) + "\t" + str(gene.id) + "\t" + str(gene.exons) + "\t" + str(gene.orf_start) + "\t" + str(gene.orf_stop) + "\t" + str(gene.stop_codon) + "\t" + str(gene.frequency_stop) + "\n")
+        file_gene.write(str(gene.name_file) + "\t" +
+                        str(gene.id) + "\t" +
+                        str(gene.exons) + "\t" +
+                        str(gene.orf_start) + "\t" +
+                        str(gene.orf_stop) + "\t" +
+                        str(gene.stop_codon) + "\t" +
+                        str(gene.frequency_stop) + "\n")
     file_gene.close()
 
 
 def write_gene_threshold(gene, file):
-    file.write(str(gene.name_file) + "\t" + str(gene.id) + "\t" + str(gene.exons) + "\t" + str(gene.orf_start) + "\t" + str(gene.orf_stop) + "\t" + str(gene.stop_codon) + "\t" + str(gene.frequency_stop) + "\n")
+    file.write(str(gene.name_file) + "\t" +
+               str(gene.id) + "\t" +
+               str(gene.exons) + "\t" +
+               str(gene.orf_start) + "\t" +
+               str(gene.orf_stop) + "\t" +
+               str(gene.stop_codon) + "\t" +
+               str(gene.frequency_stop) + "\n")
+
+codon_rel_coord = json.loads(open(in_file_rel_coord, "r").read())
+print(codon_rel_coord)
 
 
 files_name = open(in_file, "r")
