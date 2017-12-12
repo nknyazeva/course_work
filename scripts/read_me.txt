@@ -28,26 +28,44 @@
         description_pairs_genes - файл с названиями файлов пары генов, id организма, в котором встречаются обы стоп-кодона, позиция стоп-кодона и его буквенное обозначение в этих генах.
         frequency_pairs_genes - файл с названиями файлов пары генов и с их частотой встречаемости стоп-кодонов в одном организме (p_ab). Нет нулевых частот.
 
-6. counting_frequency_pairs_genes.py (старый файл). Не передаются параметры.
+6. negative_control.py - тот же смысл, что и у counting_frequency_pairs_genes_by_threshold.py, только для генов, которые находятся на разных хромосомах. Гены образуют пары попорядку.
+Параметры: a[0] - threshold, a[1] - number_neighbors.
+На входе: threshold_genes_with_stop (результат работы counting_frequency_stop_in_gene_by_threshold.py)
+        files_wo_stop_codons.txt (результат работы create_list_files_wo_stop.py)
+        no_threshold_genes_with_stop (результат работы counting_frequency_stop_in_gene_by_threshold.py)
+На выходе:
+        description_pairs_genes - файл с названиями файлов пары генов, id организма, в котором встречаются обы стоп-кодона, позиция стоп-кодона и его буквенное обозначение в этих генах.
+        frequency_pairs_genes - файл с названиями файлов пары генов и с их частотой встречаемости стоп-кодонов в одном организме (p_ab). Нет нулевых частот.
+
+negative_control_more_pairs.py - тот же смысл, что и у counting_frequency_pairs_genes_by_threshold.py, только для генов, которые находятся на разных хромосомах. Берется заданное количестсво пар между генами (например, все попарные комбинации первых 50 генов с разных хромосом и так далее по всей длине хромосом).
+Параметры: a[0] - threshold, a[1] - number_neighbors.
+На входе: threshold_genes_with_stop (результат работы counting_frequency_stop_in_gene_by_threshold.py)
+        files_wo_stop_codons.txt (результат работы create_list_files_wo_stop.py)
+        no_threshold_genes_with_stop (результат работы counting_frequency_stop_in_gene_by_threshold.py)
+На выходе:
+        description_pairs_genes - файл с названиями файлов пары генов, id организма, в котором встречаются обы стоп-кодона, позиция стоп-кодона и его буквенное обозначение в этих генах.
+        frequency_pairs_genes - файл с названиями файлов пары генов и с их частотой встречаемости стоп-кодонов в одном организме (p_ab). Нет нулевых частот.
+
+7. counting_frequency_pairs_genes.py (старый файл). Не передаются параметры.
 На входе: threshold_genes_with_stop (результат работы counting_frequency_stop_in_gene_by_threshold.py)
         files_wo_stop_codons.txt (результат работы create_list_files_wo_stop.py)
 На выходе (имена другие, надо исправить):
         description_pairs_genes - файл с названиями файлов пары генов, id организма, в котором встречаются обы стоп-кодона, позиция стоп-кодона и его буквенное обозначение в этих генах.
         frequency_pairs_genes - файл с названиями файлов пары генов и с их частотой встречаемости стоп-кодонов в одном организме (p_ab). Нет нулевых частот.
 
-7. frequency_b_in_a.py
+8. frequency_b_in_a.py
 Параметры: a[0] - threshold, a[1] - number_neighbors (на Макарыче)
 На входе: frequency_pairs_genes (результат работы counting_frequency_pairs_genes_by_threshold.py)
         threshold_genes_with_stop (результат работы counting_frequency_stop_in_gene_by_threshold.py)
 На выходе: frequency_b_in_a_max_a - файл со списком пар генов и частотами frequency_max_a, frequency_min_b, frequency_ab, frequency_b_in_a
 
-8. LD.py
+9. LD.py
 Параметры: a[0] - threshold
 На входе: frequency_pairs_genes (результат работы counting_frequency_pairs_genes_by_threshold.py)
         threshold_genes_with_stop (результат работы counting_frequency_stop_in_gene_by_threshold.py)
 На выходе: LD - файл со списком пар генов и значением LD и r2
 
-9. frequency_n.py - считает число N на месте всех стоп-кодонов по всему гену в других организмах.
+10. frequency_n.py - считает число N на месте всех стоп-кодонов по всему гену в других организмах.
 На входе: direct - папка со всеми генами (/mnt/lustre/potapova/200_flies/all_genes/).
 На выходе:
         stop_codon_relative_coordinate.txt - файл с данными в формате json с информацией о стоп-кодонах
@@ -55,5 +73,8 @@
         list_stop_codon_before.txt - список файлов, в которых есть стоп-кодоны.
         list_stop_codon_after.txt - список файлов, в которых есть стоп-кодоны без N в других организмах.
 
-
+11. search_frameshift.py - смотрит на длину строк (генов) в одном файле, и если она разная, то записывает имя файла в создаваеммый файл.
+На входе: direct - папка со всеми генами (/mnt/lustre/potapova/200_flies/all_genes/).
+На выходе:
+        files_with_frameshift.txt - файл со списком названий файлов, в которых гены неодинаковой длины.
 
