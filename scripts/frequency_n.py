@@ -9,9 +9,9 @@ import json
 
 
 direct = "/mnt/lustre/potapova/200_flies/all_genes/"
-out_file = "/mnt/lustre/nknyazeva/courseWork4/scripts/output/stop_codon_relative_coordinate.txt"
-out_file_before = "/mnt/lustre/nknyazeva/courseWork4/scripts/output/list_stop_codon_before.txt"
-out_file_after = "/mnt/lustre/nknyazeva/courseWork4/scripts/output/list_stop_codon_after.txt"
+out_file = "/mnt/lustre/nknyazeva/courseWork4/repository/output/stop_codon_relative_coordinate.txt"
+out_file_before = "/mnt/lustre/nknyazeva/courseWork4/repository/output/list_stop_codon_before.txt"
+out_file_after = "/mnt/lustre/nknyazeva/courseWork4/repository/output/list_stop_codon_after.txt"
 
 
 for folders, subfolders, files in os.walk(direct):
@@ -44,10 +44,6 @@ for file in file_list:
             break
     f1.close()
 
-f2.write(json.dumps(result, sort_keys=True,
-                      indent=4, separators=(',', ': ')))
-f2.close()
-
 for data in result:
     f1 = open(os.path.join(direct, data["file_name"]), "r")
     for line in f1:
@@ -64,6 +60,11 @@ for data in result:
 
 f3.close()
 f4.close()
+
+f2.write(json.dumps(result, sort_keys=True,
+                      indent=4, separators=(',', ': ')))
+f2.close()
+
 
 # import json
 #

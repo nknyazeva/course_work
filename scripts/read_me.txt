@@ -46,3 +46,14 @@
 На входе: frequency_pairs_genes (результат работы counting_frequency_pairs_genes_by_threshold.py)
         threshold_genes_with_stop (результат работы counting_frequency_stop_in_gene_by_threshold.py)
 На выходе: LD - файл со списком пар генов и значением LD и r2
+
+9. frequency_n.py
+На входе: direct - папка со всеми генами (/mnt/lustre/potapova/200_flies/all_genes/).
+На выходе:
+        stop_codon_relative_coordinate.txt - файл с данными в формате json с информацией о стоп-кодонах
+            внутри генов с отрезанными 5% гена с обоих сторон (координата, стоп-кодон, имя файла).
+        list_stop_codon_before.txt
+        list_stop_codon_after.txt
+
+
+
