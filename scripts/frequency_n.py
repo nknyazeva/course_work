@@ -51,6 +51,7 @@ for data in result:
         if line[0] != ">":
             if line[data["coord"]] == 'N' or line[data["coord"] + 1] == 'N' or line[data["coord"] + 2] == 'N':
                 data["number_n"] = data["number_n"] + 1
+    f1.close()
 
 f3 = open(out_file_before, "w")
 f4 = open(out_file_after, "w")
