@@ -104,12 +104,17 @@ def frequency_stop_codon (gene_catalog):
             dict_file_gene[gene.name_file].append(gene)
     for file in dict_file_gene.keys():
         index = 0
+        max_number_n = 0
         for gene in dict_file_gene[file]:
             if gene.stop_codon != {}:
                 index = index + 1
+
+            if(max_number_n < gene.number_n):
+                max_number_n = gene.number_n
+
         for gene in dict_file_gene[file]:
             # gene.frequency_stop = float(index) / number_individual
-            gene.frequency_stop = float(index) / (number_individual - gene.number_n)
+            gene.frequency_stop = float(index) / (number_individual - max_number_n)
 
 def write_gene(gene_catalog, out_fileGene):
     file_gene = open(out_fileGene, "w")

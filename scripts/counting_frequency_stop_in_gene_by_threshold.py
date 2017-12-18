@@ -110,12 +110,24 @@ def frequency_stop_codon (gene_catalog):
 def write_gene(gene_catalog, out_fileGene):
     file_gene = open(out_fileGene, "w")
     for gene in gene_catalog:
-        file_gene.write(str(gene.name_file) + "\t" + str(gene.id) + "\t" + str(gene.exons) + "\t" + str(gene.orf_start) + "\t" + str(gene.orf_stop) + "\t" + str(gene.stop_codon) + "\t" + str(gene.frequency_stop) + "\n")
+        file_gene.write(str(gene.name_file) + "\t" +
+                        str(gene.id) + "\t" +
+                        str(gene.exons) + "\t" +
+                        str(gene.orf_start) + "\t" +
+                        str(gene.orf_stop) + "\t" +
+                        str(gene.stop_codon) + "\t" +
+                        str(gene.frequency_stop) + "\n")
     file_gene.close()
 
 
 def write_gene_threshold(gene, file):
-    file.write(str(gene.name_file) + "\t" + str(gene.id) + "\t" + str(gene.exons) + "\t" + str(gene.orf_start) + "\t" + str(gene.orf_stop) + "\t" + str(gene.stop_codon) + "\t" + str(gene.frequency_stop) + "\n")
+    file.write(str(gene.name_file) + "\t" +
+               str(gene.id) + "\t" +
+               str(gene.exons) + "\t" +
+               str(gene.orf_start) + "\t" +
+               str(gene.orf_stop) + "\t" +
+               str(gene.stop_codon) + "\t" +
+               str(gene.frequency_stop) + "\n")
 
 
 files_name = open(in_file, "r")
